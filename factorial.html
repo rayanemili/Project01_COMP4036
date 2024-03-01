@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial Program using loop in JavaScript</title>
+</head>
+<body>
+    <form id="factorialForm">
+        Enter the Number:<br>
+        <input type="number" name="number" id="number">
+        <input type="submit" value="Submit" />
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('factorialForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            // Get the input number
+            var number = parseInt(document.getElementById('number').value);
+
+            // Calculate factorial
+            var fact = 1;
+            for (var i = 1; i <= number; i++) {
+                fact *= i;
+            }
+
+            // Display the result
+            document.getElementById('result').innerHTML = "Factorial of " + number + ":<br><br>" + fact;
+        });
+    </script>
+</body>
+</html>
+

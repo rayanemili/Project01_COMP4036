@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Even or Odd Number Checker</title>
+</head>
+<body>
+    <form id="numberForm">
+        Enter a number:  
+        <input type="number" name="number">  
+        <input type="submit" value="Submit">  
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('numberForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            // Get the input number
+            var number = parseInt(document.querySelector('input[name="number"]').value);
+
+            // Check if the number is even or odd
+            var message = (number % 2 === 0) ? (number + " is an Even number") : (number + " is an Odd number");
+
+            // Display the result
+            document.getElementById('result').innerText = message;
+        });
+    </script>
+</body>
+</html>
+

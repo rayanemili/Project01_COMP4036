@@ -1,0 +1,104 @@
+{
+"personal_info": {
+"address": "1092 Calle Jose E Arraras, Mayagüez, Puerto Rico 00682",
+"name": "Rayane Mili",
+"phone": "(939) 608-5397",
+"email": "rayane.mili@umontreal.ca"
+},
+"education": {
+"institution": {
+"city": "Montreal, QC",
+"name": "Université de Montréal",
+"start_date": "2021-09"
+},
+"degree": {
+"name": "BSc in Computer Science and Mathematics",
+"specialization": "Data Science"
+},
+"coursework": [
+"Programming (Python/Java/C)",
+"Data Structures",
+"Probabilities",
+"Web Design (HTML/CSS)",
+"Regression Analysis (R/SPSS)",
+"Machine Learning/Artificial Intelligence",
+"Algorithms",
+"Database (SQL)"
+]
+},
+"employment": [
+{
+"title": "Data Analyst Intern",
+"company": "Shared Services Canada, Ottawa",
+"start_date": "2022-06",
+"end_date": "2023-01",
+"highlights": [
+"Analyzed data to identify patterns and trends for government agencies.",
+"Created and maintained databases and dashboards using PowerBi, SAS, and Excel.",
+"Collaborated with teams to align data analysis with business goals."
+]
+},
+{
+"title": "Waiter",
+"company": "Caramela Restaurant, Gatineau",
+"start_date": "2021-03",
+"end_date": "2021-09",
+"highlights": [
+"Provided excellent customer service.",
+"Demonstrated strong teamwork and communication skills."
+]
+},
+{
+"title": "Lifeguard",
+"company": "H2O, Ottawa",
+"start_date": "2018-04",
+"end_date": "2021-02",
+"highlights": [
+"Supervised hotel swimming pools.",
+"Performed rescue and first aid interventions.",
+"Provided bilingual customer service (French & English)."
+]
+}
+],
+"projects": [
+{
+"title": "Matching Cards Game (2023)",
+"description": "Developed a game with matching card functionality using Python, database for user information, and HTML/CSS interface.",
+"technologies": ["Python", "HTML", "CSS"]
+},
+{
+"title": "Multivariate Regression Analysis Project (2023)",
+"description": "Created linear models for life expectancy using R, identified relationships, and made predictions based on analysis.",
+"technologies": ["R"]
+},
+{
+"title": "Maze Generator (2022)",
+"description": "Created an algorithm to generate mazes and implemented a pathfinding algorithm using Python with libraries like NumPy and Matplotlib.",
+"technologies": ["Python", "NumPy", "Matplotlib"]
+}
+],
+"languages_and_technologies": [
+"Python",
+"Java",
+"C",
+"R",
+"SQL",
+"HTML",
+"CSS",
+"PowerBi",
+"SAS",
+"Excel",
+"SharePoint",
+"Matlab",
+"Unix Shell",
+"Git",
+"VS Code",
+"SPSS"
+],
+"awards": [
+{
+"name": "National Society of Collegiate Scholars (NSCS) lifetime member",
+"institution": "Florida International University Chapter"
+}
+]
+}

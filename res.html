@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curriculum Vitae</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+</head>
+<body>
+<h1>Curriculum Vitae</h1>
+<div id="cvContainer"></div>
+<button id="downloadPDF">Download PDF</button>
+
+<script>
+// Object representing the Curriculum Vitae
+const curriculumVitae = {
+    cvData: null, // Placeholder for CV data
+
+    // Method to fetch CV data from JSON file
+    fetchCVData: async function() {
+        try {
+            const response = await fetch('cv.json');
+            this.cvData = await response.json();
+        } catch (error) {
+            console.error('Error fetching CV data:', error);
+        }
+    },
+
+    // Method to generate HTML content for the CV
+    generateHTML: function() {
+        let cvHTML = '<h2>Personal Information</h2>';
+        cvHTML += '<p><strong>Name:</strong> ' + this.cvData.personal_info.name + '</p>';
+        cvHTML += '<p><strong>Email:</strong> ' + this.cvData.personal_info.email + '</p>';
+        cvHTML += '<p><strong>Phone:</strong> ' + this.cvData.personal_info.phone + '</p>';
+
+        cvHTML += '<h2>Education</h2>';
+        cvHTML += '<p><strong>Institution:</strong> ' + this.cvData.education.institution.name + ', ' + this.cvData.education.institution.city + '</p>';
+        cvHTML += '<p><strong>Degree:</strong> ' + this.cvData.education.degree.name + '</p>';
+        cvHTML += '<p><strong>Specialization:</strong> ' + this.cvData.education.degree.specialization + '</p>';
+        cvHTML += '<h3>Coursework</h3>';
+        cvHTML += '<ul>';
+        this.cvData.education.coursework.forEach(course => {
+            cvHTML += '<li>' + course + '</li>';
+        });
+        cvHTML += '</ul>';
+
+        cvHTML += '<h2>Employment</h2>';
+        this.cvData.employment.forEach(job => {
+            cvHTML += '<h3>' + job.title + ', ' + job.company + '</h3>';
+            cvHTML += '<p><strong>Start Date:</strong> ' + job.start_date + '</p>';
+            cvHTML += '<p><strong>End Date:</strong> ' + job.end_date + '</p>'; 
+	});
+	cvHTML += '<h2>Projects</h2>';
+        this.cvData.projects.forEach(project => {
+            cvHTML += '<li>' + project.title + '</li>';
+            cvHTML += '<p><strong>Description:</strong> ' + project.description + '</p>';
+        });
+	cvHTML += '<button onclick="alert()">Download PDF</button>';
+        return cvHTML;
+    },
+
+    // Method to print the CV in HTML format
+    printHTML: function() {
+        const cvContainer = document.getElementById('cvContainer');
+        if (!cvContainer) {
+            console.error('CV container not found');
+            return;
+        }
+        cvContainer.innerHTML = this.generateHTML(); // Set HTML content
+    },
+
+    // Method to generate and download PDF
+    downloadPDF: function() {
+        const pdf = new jsPDF();
+        pdf.text(this.generateHTML(), 10, 10);
+        pdf.save('CurriculumVitae.pdf');
+    }
+};
+
+
+// Fetch CV data and print HTML when the DOM is loaded
+window.addEventListener('DOMContentLoaded', async () => {
+    await curriculumVitae.fetchCVData();
+    curriculumVitae.printHTML();
+
+    document.getElementById('downloadPDF').addEventListener('click', () => {
+        curriculumVitae.downloadPDF();
+    });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triangle Area Calculator</title>
+</head>
+<body>
+    <form id="triangleForm">
+        Base: <input type="number" name="base"> <br><br>
+        Height: <input type="number" name="height"> <br>
+        <input type="submit" value="Calculate">
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('triangleForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            // Get the input values
+            var base = parseInt(document.querySelector('input[name="base"]').value);
+            var height = parseInt(document.querySelector('input[name="height"]').value);
+
+            // Calculate the area
+            var area = (base * height) / 2;
+
+            // Display the result
+            document.getElementById('result').innerHTML = "The area of a triangle with base as " + base + " and height as " + height + " is " + area;
+        });
+    </script>
+</body>
+</html>
+
